@@ -15,20 +15,20 @@ Verifique que en la consola sigan apereciendo los mensajes de log
 
 const boton = document.querySelector("button");
 
-boton.addEventListener("click", () => {
+boton.onclick = () => {
     console.log("Respuesta evento click");
     boton.className = "btnClick";
-})
+}
 
-boton.addEventListener("mouseover", () => {
+boton.onmouseover = () => {
     console.log("Respuesta evento mouseover");
     boton.className = "btnOver";
-})
+}
 
-boton.addEventListener("mouseout", () => {
+boton.onmouseout = () => {
     console.log("Respuesta evento mouseout");
     boton.className = "btnOut";
-})
+}
 
 
 /* 2 - Enunciado
@@ -40,6 +40,20 @@ actual seleccionado en la caja de seleccion.
 
 */
 
+const select = document.querySelector('select');
+const body = document.querySelector('body');
+
+function update(bgColor, textColor) {
+    body.style.backgroundColor = bgColor;
+    body.style.color = textColor
+}
+
+select.onchange = () => {
+    select.value === "efectivo" ? update('white', 'black') :
+    select.value === "transferencia" ? update('yellow', 'black') :
+    select.value === "tarjeta" ? update('orange', 'green') : ('white', 'black');           
+}
+
 /* 3 - Enunciado
 
 Cree un evento que capture cuando haya finalizado de ingresas
@@ -49,3 +63,10 @@ PISTA: Debe utilizar el mismo tipo de evento que en el ejercicio
 anterior.
 
 */
+
+const input = document.querySelector('input');
+
+
+input.onchange = () => {
+    alert("Hola:"+" "+input.value);
+}
